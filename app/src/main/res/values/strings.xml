@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">L1var8</string>
+    <string name="first_number">First number</string>
+    <string name="second_number">Second number</string>
+    <string name="but">Calculate</string>
+    <string name="errtext">One or both parameters are empty</string>
+    <string name="result">Result</string>
+</resources>
