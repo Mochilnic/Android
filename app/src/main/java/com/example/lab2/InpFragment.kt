@@ -1,6 +1,5 @@
 package com.example.lab2
 
-import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -13,37 +12,11 @@ import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import com.example.lab2.databinding.FragmentInpBinding
 import com.google.android.material.textfield.TextInputEditText
-import java.lang.ClassCastException
 import java.util.*
 
 class InpFragment : Fragment() {
     private val dataModel: DataModel by activityViewModels()
     lateinit var binding: FragmentInpBinding
-    private lateinit var onTextSentListener: OnTextSent
-    private lateinit var onShowStorage: ShowStorage
-
-    interface OnTextSent {
-        fun sendData(
-            editTextInput: String
-        )
-    }
-    interface ShowStorage {
-        fun show()
-    }
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-
-        try {
-            onTextSentListener = context as OnTextSent
-            onShowStorage = context as ShowStorage
-        } catch (e: ClassCastException) {
-            throw ClassCastException(
-                activity.toString()
-                        + " must implement onTextSent and ShowStorage"
-            )
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -56,7 +29,6 @@ class InpFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val calc = view.findViewById<Button>(R.id.calc)
-        val openStorage = view.findViewById<Button>(R.id.openStorage)
         val first = view.findViewById<TextInputEditText>(R.id.first)
         val second = view.findViewById<TextInputEditText>(R.id.second)
         val plus = view.findViewById<RadioButton>(R.id.radioButton1)
@@ -102,36 +74,16 @@ class InpFragment : Fragment() {
                         }
                         res = a / b
                     }
-                    val text=res.toString()
-                    Toast.makeText(getActivity(), "Data saved", Toast.LENGTH_SHORT).show()
-                    dataModel.message.value=text
-                    dataModel.operCounter.value=counter.toString()
-                    passData(
-                        text
-                    )
-                }
+                    dataModel.message.value=res.toString()
+                    dataModel.operCounter.value=counter.toString()}
 
                 else{
                     Toast.makeText(getActivity(), R.string.nan, Toast.LENGTH_LONG).show()
                 }
             }
         })
-
-        openStorage.setOnClickListener {
-            showStorage()
-        }
-    }
-    private fun showStorage() {
-        onShowStorage.show()
     }
 
-    private fun passData(
-        editTextInput: String
-    ) {
-        onTextSentListener.sendData(
-            editTextInput
-        )
-    }
     companion object {
         @JvmStatic
         fun newInstance()=InpFragment()

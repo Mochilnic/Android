@@ -8,5 +8,4 @@
     <string name="zerotext">You are trying to divide by zero</string>
     <string name="nan">You are using forbidden characters</string>
     <string name="result">Result</string>
-    <string name="empty">Storage is empty</string>
 </resources>
