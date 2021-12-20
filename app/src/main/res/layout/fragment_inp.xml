@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InpFragment"
+    android:background="@color/purple_200">
+
+    <RadioGroup
+        android:id="@+id/radgroup"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/second"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/radioButton1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="150sp"
+            android:checked="true"
+            android:text="+" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="150sp"
+            android:text="-" />
+
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="150sp"
+            android:text="*" />
+
+        <RadioButton
+            android:id="@+id/radioButton4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="150sp"
+            android:text="/" />
+    </RadioGroup>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/second"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/first"
+        android:layout_marginHorizontal="100sp"
+        android:hint="@string/second_number"
+        android:minHeight="48dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/first"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="100sp"
+        android:hint="@string/first_number" />
+
+    <Button
+        android:id="@+id/calc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/radgroup"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="30sp"
+        android:text="@string/but" />
+
+    <Button
+        android:id="@+id/openStorage"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_below="@+id/calc"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentBottom="false"
+        android:layout_marginStart="123dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="122dp"
+        android:layout_marginBottom="314dp"
+        android:maxHeight="30dp"
+        android:text="Open storage" />
+
+
+</RelativeLayout>
